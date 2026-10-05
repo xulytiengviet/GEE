@@ -1,3 +1,11 @@
+# GEE App Search
+
+> Giao diện tìm kiếm ứng dụng Google Earth Engine theo URL, tên ứng dụng, tác giả, chủ đề và sensor. Chỉ mục ứng dụng lấy từ [samapriya/ee-appshot](https://github.com/samapriya/ee-appshot); chức năng trích xuất mã dựa trên cơ chế `geeadd utils app2script`. Trang tài liệu geeadd gốc được giữ tại [docs.html](docs.html).
+
+**Web app:** triển khai từ `index.html` của repository này. Dữ liệu được đọc động từ ee-appshot nên không cần đóng gói lại 4.000+ URL trong mã nguồn.
+
+---
+
 # Google Earth Engine Batch Asset Manager with Addons
 
 [![Documentation](https://img.shields.io/badge/docs-geeadd.geetools.xyz-blue?style=for-the-badge&logo=read-the-docs)](https://samapriya.github.io/gee_asset_manager_addon/)
