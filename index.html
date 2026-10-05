@@ -22,11 +22,9 @@
     .brand-mini{margin-right:auto;font-weight:700;color:#5f6368;letter-spacing:.2px}
     .brand-mini b{color:var(--blue)}
     .shell{max-width:1120px;margin:0 auto;padding:0 24px 64px}
-    .hero{min-height:265px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:34px}
-    .logo{font-size:54px;font-weight:700;letter-spacing:-2px;line-height:1;margin:0 0 26px;user-select:none}
-    .logo span:nth-child(1){color:#4285f4}.logo span:nth-child(2){color:#ea4335}.logo span:nth-child(3){color:#fbbc05}
-    .logo span:nth-child(4){color:#4285f4}.logo span:nth-child(5){color:#34a853}.logo span:nth-child(6){color:#ea4335}
-    .logo small{display:block;font-size:14px;letter-spacing:.4px;color:#5f6368;text-align:center;margin-top:10px;font-weight:400}
+    .hero{min-height:auto;display:flex;flex-direction:column;align-items:center;padding:24px 0 34px}
+    .hero-brand{width:100%;display:flex;justify-content:center;margin:0 0 18px}
+    .hero-banner{display:block;width:min(1080px,100%);height:auto}
     .search-wrap{width:min(680px,100%);position:relative}
     .searchbox{height:48px;border:1px solid #dfe1e5;border-radius:24px;display:flex;align-items:center;padding:0 16px;gap:10px;background:#fff}
     .searchbox:focus-within,.searchbox:hover{box-shadow:var(--shadow);border-color:transparent}
@@ -75,15 +73,25 @@
     .related-box{margin:24px 0 8px;padding:18px;border:1px solid #e0e3e7;border-radius:12px;background:#fafafa}
     .related-box h3{margin:0 0 8px;font-size:16px}
     .related-box p{margin:0;color:#5f6368;font-size:13px;line-height:1.5}
-    .footer{margin-top:60px;background:#f2f2f2;color:#70757a;font-size:12px}
-    .footer-inner{max-width:1120px;margin:0 auto;padding:18px 24px;display:flex;gap:12px;flex-wrap:wrap;justify-content:space-between}
-    .footer a{color:#5f6368;text-decoration:none}.footer a:hover{text-decoration:underline}
+    .footer{margin-top:60px;background:#f5f6f7;color:#5f6368;border-top:1px solid #e5e7eb}
+    .footer-inner{max-width:1120px;margin:0 auto;padding:24px;display:grid;grid-template-columns:minmax(180px,1fr) minmax(0,2.4fr);gap:28px;align-items:center}
+    .footer-source{font-size:12px;align-self:end}
+    .support{margin-left:auto;display:flex;align-items:center;justify-content:flex-end;gap:18px;max-width:760px}
+    .support-copy{text-align:right;font-size:13px;line-height:1.55;color:#3c4043}
+    .support-copy strong{display:block;color:#202124;font-size:14px}
+    .support-copy .coffee{display:block;margin-top:5px;color:#5f6368}
+    .support-qr{width:132px;height:132px;flex:0 0 132px;background:#fff;border:7px solid #fff;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,.14)}
     .loading-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#1a73e8;animation:pulse 1s infinite alternate;margin-right:4px}
     @keyframes pulse{to{opacity:.25;transform:scale(.75)}}
     @media(max-width:680px){
       .topbar{height:52px;padding:0 14px}.topbar a:nth-of-type(1){display:none}
-      .shell{padding:0 16px 48px}.hero{min-height:230px}.logo{font-size:44px}
+      .shell{padding:0 16px 48px}.hero{padding:16px 0 24px}.hero-brand{margin-bottom:14px}.hero-banner{width:100%}
       .summary{width:100%;margin-left:0}.result{padding-top:10px}.title{font-size:18px}.desc{font-size:13px}
+      .footer-inner{grid-template-columns:1fr;gap:16px;padding:20px 16px}
+      .footer-source{order:2;text-align:center}
+      .support{order:1;margin:0;max-width:none;justify-content:space-between;align-items:center}
+      .support-copy{text-align:left;font-size:12px}
+      .support-qr{width:112px;height:112px;flex-basis:112px}
     }
   </style>
 </head>
@@ -94,10 +102,39 @@
 
   <main class="shell">
     <section class="hero" id="hero">
-      <h1 class="logo" aria-label="GEE App Search">
-        <span>G</span><span>E</span><span>E</span> <span>A</span><span>p</span><span>p</span>
-        <small>Tìm ứng dụng Google Earth Engine · khám phá ý tưởng · tái sử dụng mã phù hợp</small>
-      </h1>
+      <div class="hero-brand" aria-label="Vietflexmap - Thành viên hệ sinh thái gis.vn">
+<svg class="hero-banner" viewBox="0 0 1500 500" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="bannerTitle bannerDesc">
+  <title id="bannerTitle">Vietflexmap</title>
+  <desc id="bannerDesc">Thành viên hệ sinh thái gis.vn</desc>
+  <defs>
+    <linearGradient id="vfBlue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b3ea8"/>
+      <stop offset=".55" stop-color="#0877f9"/>
+      <stop offset="1" stop-color="#08aef2"/>
+    </linearGradient>
+    <linearGradient id="vfLine" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset=".45" stop-color="#16e6df"/>
+      <stop offset="1" stop-color="#02d8e7"/>
+    </linearGradient>
+  </defs>
+  <rect x="24" y="70" width="330" height="330" rx="72" fill="url(#vfBlue)"/>
+  <path d="M74 294 L128 160 L181 271 L238 176 L300 326" fill="none" stroke="url(#vfLine)" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#12dfe1" stroke="#fff" stroke-width="8">
+    <circle cx="128" cy="160" r="24"/>
+    <circle cx="181" cy="271" r="24"/>
+    <circle cx="238" cy="176" r="24"/>
+    <circle cx="300" cy="326" r="24"/>
+  </g>
+  <text x="405" y="151" font-family="Arial,Helvetica,sans-serif" font-size="53" font-weight="700" fill="#353b4d">Thành viên hệ sinh thái</text>
+  <g fill="#ed1118">
+    <circle cx="1088" cy="123" r="45" fill="none" stroke="#ed1118" stroke-width="18"/>
+    <path d="M1088 95h43v22h-22v41h-21z"/>
+    <text x="1148" y="151" font-family="Arial,Helvetica,sans-serif" font-size="70" font-weight="800">gis.vn</text>
+  </g>
+  <text x="390" y="350" font-family="Arial,Helvetica,sans-serif" font-size="170" font-weight="800" letter-spacing="-9" fill="#000">Vietflex<tspan fill="#126bf3">map</tspan></text>
+</svg>
+</div>
       <div class="search-wrap">
         <form id="form" class="searchbox" role="search">
           <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 3a6.5 6.5 0 1 0 4.04 11.59L19.95 21 21 19.95l-6.41-6.41A6.5 6.5 0 0 0 9.5 3Zm0 1.5a5 5 0 1 1 0 10 5 5 0 0 1 0-10Z"/></svg>
@@ -151,7 +188,16 @@
 
   <footer class="footer">
     <div class="footer-inner">
-      <span>Nguồn: sưu tầm Long Ngo, MIT 2026</span>
+      <div class="footer-source">Nguồn: sưu tầm Long Ngo, MIT 2026</div>
+      <div class="support">
+        <div class="support-copy">
+          <strong>Ngân hàng An Bình</strong>
+          Tài khoản: GIS 0905 434 436<br>
+          Zalo hỗ trợ
+          <span class="coffee">Một ly cà phê từ bạn sẽ tiếp thêm năng lượng cho gis.vn - cảm ơn bạn</span>
+        </div>
+        <svg class="support-qr" viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" role="img" aria-label="Mã QR hỗ trợ"><rect width="100%" height="100%" fill="#fff"/><path d="M4 4h7v1h-7zM12 4h2v1h-2zM15 4h1v1h-1zM17 4h1v1h-1zM19 4h1v1h-1zM22 4h3v1h-3zM28 4h4v1h-4zM34 4h7v1h-7zM4 5h1v1h-1zM10 5h1v1h-1zM12 5h1v1h-1zM14 5h2v1h-2zM17 5h1v1h-1zM19 5h2v1h-2zM23 5h1v1h-1zM25 5h1v1h-1zM27 5h3v1h-3zM32 5h1v1h-1zM34 5h1v1h-1zM40 5h1v1h-1zM4 6h1v1h-1zM6 6h3v1h-3zM10 6h1v1h-1zM12 6h1v1h-1zM15 6h1v1h-1zM17 6h1v1h-1zM23 6h2v1h-2zM26 6h1v1h-1zM28 6h5v1h-5zM34 6h1v1h-1zM36 6h3v1h-3zM40 6h1v1h-1zM4 7h1v1h-1zM6 7h3v1h-3zM10 7h1v1h-1zM12 7h1v1h-1zM14 7h3v1h-3zM18 7h1v1h-1zM20 7h4v1h-4zM26 7h4v1h-4zM31 7h2v1h-2zM34 7h1v1h-1zM36 7h3v1h-3zM40 7h1v1h-1zM4 8h1v1h-1zM6 8h3v1h-3zM10 8h1v1h-1zM12 8h1v1h-1zM14 8h1v1h-1zM16 8h1v1h-1zM18 8h1v1h-1zM20 8h1v1h-1zM22 8h1v1h-1zM24 8h1v1h-1zM26 8h2v1h-2zM30 8h2v1h-2zM34 8h1v1h-1zM36 8h3v1h-3zM40 8h1v1h-1zM4 9h1v1h-1zM10 9h1v1h-1zM17 9h1v1h-1zM19 9h1v1h-1zM27 9h1v1h-1zM29 9h1v1h-1zM34 9h1v1h-1zM40 9h1v1h-1zM4 10h7v1h-7zM12 10h1v1h-1zM14 10h1v1h-1zM16 10h1v1h-1zM18 10h1v1h-1zM20 10h1v1h-1zM22 10h1v1h-1zM24 10h1v1h-1zM26 10h1v1h-1zM28 10h1v1h-1zM30 10h1v1h-1zM32 10h1v1h-1zM34 10h7v1h-7zM12 11h1v1h-1zM14 11h3v1h-3zM20 11h2v1h-2zM23 11h2v1h-2zM27 11h1v1h-1zM29 11h2v1h-2zM5 12h2v1h-2zM8 12h1v1h-1zM10 12h2v1h-2zM13 12h1v1h-1zM20 12h1v1h-1zM22 12h1v1h-1zM24 12h1v1h-1zM26 12h1v1h-1zM28 12h1v1h-1zM30 12h3v1h-3zM34 12h1v1h-1zM36 12h5v1h-5zM5 13h1v1h-1zM12 13h1v1h-1zM15 13h4v1h-4zM20 13h1v1h-1zM24 13h3v1h-3zM28 13h6v1h-6zM39 13h1v1h-1zM6 14h2v1h-2zM9 14h2v1h-2zM12 14h1v1h-1zM14 14h3v1h-3zM18 14h3v1h-3zM24 14h1v1h-1zM27 14h2v1h-2zM30 14h3v1h-3zM36 14h1v1h-1zM38 14h2v1h-2zM11 15h1v1h-1zM13 15h1v1h-1zM16 15h1v1h-1zM19 15h2v1h-2zM23 15h2v1h-2zM29 15h1v1h-1zM32 15h4v1h-4zM39 15h1v1h-1zM5 16h1v1h-1zM7 16h2v1h-2zM10 16h1v1h-1zM12 16h1v1h-1zM15 16h3v1h-3zM20 16h5v1h-5zM26 16h1v1h-1zM31 16h1v1h-1zM34 16h2v1h-2zM38 16h1v1h-1zM4 17h3v1h-3zM8 17h1v1h-1zM13 17h2v1h-2zM16 17h1v1h-1zM18 17h2v1h-2zM21 17h1v1h-1zM23 17h1v1h-1zM27 17h1v1h-1zM30 17h1v1h-1zM34 17h1v1h-1zM36 17h2v1h-2zM39 17h2v1h-2zM5 18h7v1h-7zM14 18h2v1h-2zM17 18h1v1h-1zM20 18h1v1h-1zM22 18h1v1h-1zM25 18h1v1h-1zM28 18h1v1h-1zM30 18h1v1h-1zM32 18h2v1h-2zM35 18h1v1h-1zM38 18h1v1h-1zM40 18h1v1h-1zM6 19h1v1h-1zM8 19h2v1h-2zM12 19h1v1h-1zM16 19h7v1h-7zM24 19h1v1h-1zM29 19h1v1h-1zM32 19h2v1h-2zM35 19h1v1h-1zM37 19h1v1h-1zM39 19h1v1h-1zM6 20h2v1h-2zM10 20h1v1h-1zM12 20h2v1h-2zM15 20h1v1h-1zM18 20h3v1h-3zM22 20h1v1h-1zM27 20h3v1h-3zM31 20h2v1h-2zM34 20h2v1h-2zM38 20h1v1h-1zM40 20h1v1h-1zM4 21h1v1h-1zM7 21h2v1h-2zM12 21h1v1h-1zM14 21h1v1h-1zM16 21h2v1h-2zM19 21h1v1h-1zM27 21h3v1h-3zM31 21h1v1h-1zM35 21h2v1h-2zM38 21h2v1h-2zM6 22h1v1h-1zM10 22h3v1h-3zM14 22h1v1h-1zM18 22h4v1h-4zM27 22h3v1h-3zM32 22h2v1h-2zM37 22h2v1h-2zM40 22h1v1h-1zM6 23h2v1h-2zM12 23h1v1h-1zM16 23h2v1h-2zM20 23h1v1h-1zM25 23h1v1h-1zM28 23h5v1h-5zM36 23h1v1h-1zM5 24h1v1h-1zM7 24h1v1h-1zM10 24h1v1h-1zM13 24h1v1h-1zM18 24h1v1h-1zM20 24h1v1h-1zM22 24h2v1h-2zM26 24h2v1h-2zM30 24h5v1h-5zM36 24h2v1h-2zM39 24h2v1h-2zM11 25h1v1h-1zM13 25h6v1h-6zM20 25h1v1h-1zM22 25h1v1h-1zM27 25h1v1h-1zM30 25h2v1h-2zM33 25h1v1h-1zM35 25h1v1h-1zM37 25h1v1h-1zM39 25h1v1h-1zM5 26h1v1h-1zM8 26h4v1h-4zM13 26h3v1h-3zM17 26h3v1h-3zM21 26h3v1h-3zM28 26h2v1h-2zM32 26h3v1h-3zM36 26h5v1h-5zM5 27h5v1h-5zM15 27h6v1h-6zM22 27h1v1h-1zM26 27h2v1h-2zM31 27h1v1h-1zM33 27h1v1h-1zM39 27h1v1h-1zM6 28h1v1h-1zM9 28h2v1h-2zM12 28h3v1h-3zM16 28h4v1h-4zM23 28h1v1h-1zM26 28h1v1h-1zM28 28h1v1h-1zM31 28h2v1h-2zM35 28h2v1h-2zM38 28h3v1h-3zM5 29h2v1h-2zM11 29h7v1h-7zM19 29h1v1h-1zM22 29h1v1h-1zM25 29h1v1h-1zM29 29h1v1h-1zM31 29h1v1h-1zM33 29h2v1h-2zM37 29h1v1h-1zM39 29h2v1h-2zM4 30h1v1h-1zM7 30h1v1h-1zM9 30h2v1h-2zM12 30h4v1h-4zM17 30h1v1h-1zM22 30h1v1h-1zM24 30h1v1h-1zM26 30h1v1h-1zM30 30h1v1h-1zM32 30h3v1h-3zM38 30h3v1h-3zM5 31h1v1h-1zM13 31h1v1h-1zM18 31h3v1h-3zM22 31h2v1h-2zM25 31h1v1h-1zM27 31h1v1h-1zM29 31h3v1h-3zM33 31h1v1h-1zM35 31h1v1h-1zM37 31h1v1h-1zM4 32h1v1h-1zM8 32h1v1h-1zM10 32h1v1h-1zM12 32h1v1h-1zM15 32h1v1h-1zM21 32h6v1h-6zM28 32h1v1h-1zM30 32h1v1h-1zM32 32h5v1h-5zM40 32h1v1h-1zM12 33h8v1h-8zM21 33h2v1h-2zM24 33h2v1h-2zM27 33h3v1h-3zM31 33h2v1h-2zM36 33h2v1h-2zM39 33h1v1h-1zM4 34h7v1h-7zM12 34h3v1h-3zM18 34h6v1h-6zM26 34h1v1h-1zM28 34h2v1h-2zM32 34h1v1h-1zM34 34h1v1h-1zM36 34h2v1h-2zM40 34h1v1h-1zM4 35h1v1h-1zM10 35h1v1h-1zM13 35h2v1h-2zM19 35h1v1h-1zM22 35h1v1h-1zM24 35h4v1h-4zM29 35h4v1h-4zM36 35h2v1h-2zM39 35h1v1h-1zM4 36h1v1h-1zM6 36h3v1h-3zM10 36h1v1h-1zM12 36h1v1h-1zM14 36h1v1h-1zM17 36h2v1h-2zM20 36h3v1h-3zM24 36h1v1h-1zM26 36h1v1h-1zM29 36h8v1h-8zM40 36h1v1h-1zM4 37h1v1h-1zM6 37h3v1h-3zM10 37h1v1h-1zM15 37h4v1h-4zM21 37h4v1h-4zM26 37h2v1h-2zM29 37h1v1h-1zM34 37h1v1h-1zM37 37h1v1h-1zM39 37h1v1h-1zM4 38h1v1h-1zM6 38h3v1h-3zM10 38h1v1h-1zM12 38h2v1h-2zM15 38h1v1h-1zM17 38h4v1h-4zM22 38h5v1h-5zM30 38h2v1h-2zM33 38h2v1h-2zM36 38h1v1h-1zM38 38h1v1h-1zM40 38h1v1h-1zM4 39h1v1h-1zM10 39h1v1h-1zM12 39h1v1h-1zM16 39h1v1h-1zM19 39h4v1h-4zM24 39h4v1h-4zM30 39h4v1h-4zM37 39h1v1h-1zM4 40h7v1h-7zM13 40h3v1h-3zM17 40h1v1h-1zM19 40h1v1h-1zM22 40h2v1h-2zM26 40h1v1h-1zM28 40h1v1h-1zM31 40h5v1h-5zM40 40h1v1h-1z" fill="#000"/></svg>
+      </div>
     </div>
   </footer>
 
