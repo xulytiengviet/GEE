@@ -90,9 +90,7 @@
 <body>
   <header class="topbar">
     <div class="brand-mini"><b>GEE</b> Search</div>
-    <a href="docs.html">geeadd docs</a>
-    <a href="https://github.com/xulytiengviet/GEE" target="_blank" rel="noopener">GitHub</a>
-  </header>
+</header>
 
   <main class="shell">
     <section class="hero" id="hero">
@@ -153,8 +151,7 @@
 
   <footer class="footer">
     <div class="footer-inner">
-      <span>Nguồn lập chỉ mục: samapriya/ee-appshot · cơ chế trích xuất: geeadd app2script</span>
-      <span><a href="https://github.com/samapriya/ee-appshot" target="_blank" rel="noopener">ee-appshot</a> · <a href="docs.html">Tài liệu geeadd</a> · <a href="https://github.com/xulytiengviet/GEE" target="_blank" rel="noopener">xulytiengviet/GEE</a></span>
+      <span>Nguồn: sưu tầm Long Ngo, MIT 2026</span>
     </div>
   </footer>
 
@@ -347,7 +344,7 @@
       var data=await res.json();
       try{localStorage.setItem(CACHE_KEY,JSON.stringify({ts:Date.now(),data:data}));}catch(e){}
       build(data);
-      status.textContent=index.length.toLocaleString('vi-VN')+' ứng dụng công khai · '+Object.keys(data).length.toLocaleString('vi-VN')+' tài khoản/tác giả · nguồn ee-appshot';
+      status.textContent=index.length.toLocaleString('vi-VN')+' ứng dụng công khai · '+Object.keys(data).length.toLocaleString('vi-VN')+' tài khoản/tác giả';
       if(lastQuery || activeTab==='watch') search(lastQuery);
     }catch(e){
       if(!silent){
