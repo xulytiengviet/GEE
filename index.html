@@ -24,7 +24,7 @@
     .shell{max-width:1120px;margin:0 auto;padding:0 24px 64px}
     .hero{min-height:auto;display:flex;flex-direction:column;align-items:center;padding:18px 0 30px}
     .hero-brand{width:100%;display:flex;justify-content:center;margin:0 0 18px}
-    .hero-banner{display:block;width:min(1080px,100%);height:auto;object-fit:contain}
+    .hero-banner{display:block;width:min(1080px,100%);height:auto;max-height:310px}
     .search-wrap{width:min(720px,100%);position:relative}
     .searchbox{height:48px;border:1px solid #dfe1e5;border-radius:24px;display:flex;align-items:center;padding:0 16px;gap:10px;background:#fff}
     .searchbox:focus-within,.searchbox:hover{box-shadow:var(--shadow);border-color:transparent}
@@ -127,15 +127,26 @@
   <main class="shell">
     <section class="hero" id="hero">
       <div class="hero-brand" aria-label="Vietflexmap - Thành viên hệ sinh thái gis.vn">
-  <img
-    class="hero-banner"
-    src="assets/vietflexmap-banner.webp?v=20261007-2"
-    alt="Vietflexmap - Thành viên hệ sinh thái gis.vn"
-    width="1500"
-    height="500"
-    decoding="async"
-    fetchpriority="high"
-  />
+  <svg class="hero-banner" viewBox="0 0 1800 600" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="bannerTitle bannerDesc" preserveAspectRatio="xMidYMid meet">
+    <title id="bannerTitle">Vietflexmap</title>
+    <desc id="bannerDesc">Thành viên hệ sinh thái gis.vn</desc>
+    <rect width="1800" height="600" fill="#ffffff"/>
+    <text x="62" y="466"
+          font-family="Arial Black,Arial,Helvetica,sans-serif"
+          font-size="430"
+          font-weight="900"
+          fill="#f20d12">G</text>
+    <text x="500" y="224"
+          font-family="Arial,Helvetica,sans-serif"
+          font-size="82"
+          font-weight="700"
+          fill="#365887">Thành viên hệ sinh thái<tspan fill="#f20d12" font-weight="800"> gis.vn</tspan></text>
+    <text x="500" y="468"
+          font-family="Arial Black,Arial,Helvetica,sans-serif"
+          font-size="196"
+          font-weight="900"
+          letter-spacing="-7"><tspan fill="#000000">Vietflex</tspan><tspan fill="#176df2">map</tspan></text>
+  </svg>
 </div>
       <div class="search-wrap">
         <form id="form" class="searchbox" role="search">
