@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#ffffff" />
   <meta name="description" content="GEE Search — tìm kiếm ứng dụng Google Earth Engine công khai và kho bài viết GEE theo thời gian." />
-  <title>GEE App Search</title>
+  <title>App GEE — Search</title>
   <style>
     :root{
       --blue:#1a73e8;--blue2:#174ea6;--text:#202124;--muted:#5f6368;
@@ -22,9 +22,11 @@
     .brand-mini{margin-right:auto;font-weight:700;color:#5f6368;letter-spacing:.2px}
     .brand-mini b{color:var(--blue)}
     .shell{max-width:1120px;margin:0 auto;padding:0 24px 64px}
-    .hero{min-height:auto;display:flex;flex-direction:column;align-items:center;padding:12px 0 28px}
-    .hero-brand{width:100%;display:flex;justify-content:center;align-items:center;margin:0 0 14px;min-height:0}
-    .hero-banner{display:block;width:min(1080px,100%);height:auto;object-fit:contain;image-rendering:auto}
+    .hero{min-height:auto;display:flex;flex-direction:column;align-items:center;padding:46px 0 30px}
+    .hero-brand{width:100%;display:flex;justify-content:center;align-items:center;margin:0 0 28px;min-height:0}
+    .app-gee-logo{font-family:Arial,Helvetica,sans-serif;font-size:clamp(52px,8vw,82px);font-weight:500;letter-spacing:-4px;line-height:1;user-select:none;white-space:nowrap}
+    .app-gee-logo .a{color:#4285f4}.app-gee-logo .p1{color:#ea4335}.app-gee-logo .p2{color:#fbbc05}
+    .app-gee-logo .g{color:#4285f4;margin-left:.18em}.app-gee-logo .e1{color:#34a853}.app-gee-logo .e2{color:#ea4335}
     .search-wrap{width:min(720px,100%);position:relative}
     .searchbox{height:48px;border:1px solid #dfe1e5;border-radius:24px;display:flex;align-items:center;padding:0 16px;gap:10px;background:#fff}
     .searchbox:focus-within,.searchbox:hover{box-shadow:var(--shadow);border-color:transparent}
@@ -106,7 +108,7 @@
     @keyframes pulse{to{opacity:.25;transform:scale(.75)}}
     @media(max-width:680px){
       .topbar{height:52px;padding:0 14px}.topbar a:nth-of-type(1){display:none}
-      .shell{padding:0 16px 48px}.hero{padding:16px 0 24px}.hero-brand{margin-bottom:14px}.hero-banner{width:100%}
+      .shell{padding:0 16px 48px}.hero{padding:34px 0 24px}.hero-brand{margin-bottom:22px}.app-gee-logo{font-size:52px;letter-spacing:-3px}
       .summary{width:100%;margin-left:0}.result{padding-top:10px}.title{font-size:18px}.desc{font-size:13px}
       .scope-tabs{justify-content:flex-start;overflow-x:auto;scrollbar-width:none}.scope-tabs::-webkit-scrollbar{display:none}.scope-tab{white-space:nowrap;padding-left:13px;padding-right:13px}
       .article-controls{width:100%;margin-top:10px}.article-controls-inner{gap:8px}.filter-select{max-width:46%;font-size:13px}.article-meta-summary{width:100%;margin-left:0}
@@ -126,17 +128,11 @@
 
   <main class="shell">
     <section class="hero" id="hero">
-      <div class="hero-brand" aria-label="Vietflexmap - Thành viên hệ sinh thái gis.vn">
-  <img
-    class="hero-banner"
-    src="./assets/banners/vietflexmap-gisvn-banner.png"
-    alt="Vietflexmap - Thành viên hệ sinh thái gis.vn"
-    width="1643"
-    height="407"
-    decoding="async"
-    fetchpriority="high"
-  />
-</div>
+      <div class="hero-brand" aria-label="App GEE">
+        <div class="app-gee-logo" role="img" aria-label="App GEE">
+          <span class="a">A</span><span class="p1">p</span><span class="p2">p</span><span class="g">G</span><span class="e1">E</span><span class="e2">E</span>
+        </div>
+      </div>
       <div class="search-wrap">
         <form id="form" class="searchbox" role="search">
           <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 3a6.5 6.5 0 1 0 4.04 11.59L19.95 21 21 19.95l-6.41-6.41A6.5 6.5 0 0 0 9.5 3Zm0 1.5a5 5 0 1 1 0 10 5 5 0 0 1 0-10Z"/></svg>
