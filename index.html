@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#ffffff" />
-  <meta name="description" content="GEE App Search — tìm kiếm ứng dụng Google Earth Engine công khai, khám phá ứng dụng tương tự và hỗ trợ tái sử dụng mã nguồn." />
+  <meta name="description" content="GEE Search — tìm kiếm ứng dụng Google Earth Engine công khai và kho bài viết GEE theo thời gian." />
   <title>GEE App Search</title>
   <style>
     :root{
@@ -24,8 +24,8 @@
     .shell{max-width:1120px;margin:0 auto;padding:0 24px 64px}
     .hero{min-height:auto;display:flex;flex-direction:column;align-items:center;padding:24px 0 34px}
     .hero-brand{width:100%;display:flex;justify-content:center;margin:0 0 18px}
-    .hero-banner{display:block;width:min(1120px,100%);height:auto;max-height:374px}
-    .search-wrap{width:min(680px,100%);position:relative}
+    .hero-banner{display:block;width:min(1080px,100%);height:auto;max-height:310px}
+    .search-wrap{width:min(720px,100%);position:relative}
     .searchbox{height:48px;border:1px solid #dfe1e5;border-radius:24px;display:flex;align-items:center;padding:0 16px;gap:10px;background:#fff}
     .searchbox:focus-within,.searchbox:hover{box-shadow:var(--shadow);border-color:transparent}
     .search-icon{width:20px;height:20px;fill:#9aa0a6;flex:0 0 auto}
@@ -35,7 +35,27 @@
     .hints{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px}
     .hint{border:1px solid transparent;background:var(--soft);padding:9px 14px;border-radius:4px;color:#3c4043;cursor:pointer;font-size:14px}
     .hint:hover{border-color:#dadce0;box-shadow:0 1px 1px rgba(0,0,0,.08)}
-    .statusline{text-align:center;margin-top:16px;color:#70757a;font-size:12px;min-height:18px}
+    .statusline{text-align:center;margin-top:14px;color:#70757a;font-size:12px;min-height:18px}
+    .scope-tabs{width:min(850px,100%);display:flex;align-items:center;justify-content:center;gap:6px;margin:18px auto 0;border-bottom:1px solid #ebebeb}
+    .scope-tab{appearance:none;border:0;background:transparent;color:#5f6368;padding:11px 16px 10px;cursor:pointer;font-size:14px;border-bottom:3px solid transparent;margin-bottom:-1px}
+    .scope-tab:hover{color:#202124;background:#f8f9fa;border-radius:8px 8px 0 0}
+    .scope-tab.active{color:var(--blue);border-bottom-color:var(--blue);font-weight:600}
+    .scope-count{display:inline-block;margin-left:5px;min-width:24px;padding:2px 6px;border-radius:999px;background:#f1f3f4;color:#5f6368;font-size:11px;font-weight:600}
+    .scope-tab.active .scope-count{background:#e8f0fe;color:#185abc}
+    .article-controls{display:none;max-width:850px;margin:14px 0 0;padding:10px 0 12px;border-bottom:1px solid #ebebeb}
+    .article-controls.show{display:flex}
+    .article-controls-inner{width:100%;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .filter-select{height:36px;border:1px solid #dadce0;border-radius:18px;background:#fff;color:#3c4043;padding:0 30px 0 12px;outline:0;cursor:pointer}
+    .filter-select:hover,.filter-select:focus{border-color:#bdc1c6;background:#f8f9fa}
+    .article-meta-summary{margin-left:auto;color:#70757a;font-size:12px}
+    .article-result .favicon{background:#fce8e6;color:#c5221f}
+    .article-result .path{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+    .article-date{color:#5f6368;font-size:12px}
+    .article-desc{color:#4d5156;font-size:14px;line-height:1.55;margin:0 0 8px}
+    .timeline-dot{width:7px;height:7px;border-radius:50%;background:#1a73e8;display:inline-block;flex:0 0 auto}
+    .load-more-wrap{padding:22px 0 8px;text-align:center}
+    .load-more{border:1px solid #dadce0;background:#fff;color:#1a73e8;border-radius:20px;padding:9px 18px;cursor:pointer;font-weight:600}
+    .load-more:hover{background:#f8fbff;border-color:#c6dafc}
     .toolbar{display:none;align-items:center;gap:10px;border-bottom:1px solid #ebebeb;margin-top:6px;padding:0 0 12px;flex-wrap:wrap}
     .toolbar.show{display:flex}
     .tab{border:0;background:transparent;padding:8px 12px;color:#5f6368;cursor:pointer;border-bottom:3px solid transparent}
@@ -88,6 +108,9 @@
       .topbar{height:52px;padding:0 14px}.topbar a:nth-of-type(1){display:none}
       .shell{padding:0 16px 48px}.hero{padding:16px 0 24px}.hero-brand{margin-bottom:14px}.hero-banner{width:100%}
       .summary{width:100%;margin-left:0}.result{padding-top:10px}.title{font-size:18px}.desc{font-size:13px}
+      .scope-tabs{justify-content:flex-start;overflow-x:auto;scrollbar-width:none}.scope-tabs::-webkit-scrollbar{display:none}.scope-tab{white-space:nowrap;padding-left:13px;padding-right:13px}
+      .article-controls{width:100%;margin-top:10px}.article-controls-inner{gap:8px}.filter-select{max-width:46%;font-size:13px}.article-meta-summary{width:100%;margin-left:0}
+      .article-result .result-head{gap:9px}.article-result .favicon{width:26px;height:26px}
       .footer-inner{grid-template-columns:1fr;gap:16px;padding:20px 16px}
       .footer-source{order:2;text-align:center}
       .support{order:1;margin:0;max-width:none;justify-content:space-between;align-items:center}
@@ -163,6 +186,10 @@
         <button class="hint" data-q="drought">Hạn hán</button>
       </div>
       <div class="statusline" id="status"><span class="loading-dot"></span>Đang nạp chỉ mục ứng dụng công khai…</div>
+      <nav class="scope-tabs" aria-label="Loại nội dung">
+        <button class="scope-tab active" type="button" data-scope="apps">Ứng dụng <span class="scope-count" id="appCountBadge">…</span></button>
+        <button class="scope-tab" type="button" data-scope="articles">Bài viết GEE <span class="scope-count" id="articleCountBadge">188</span></button>
+      </nav>
     </section>
 
     <nav class="toolbar" id="toolbar">
@@ -172,9 +199,27 @@
       <div class="summary" id="summary"></div>
     </nav>
 
+    <section class="article-controls" id="articleControls" aria-label="Bộ lọc bài viết GEE">
+      <div class="article-controls-inner">
+        <select class="filter-select" id="articleYear" aria-label="Lọc theo năm">
+          <option value="all">Tất cả năm</option>
+          <option value="2022">2022</option>
+          <option value="2021">2021</option>
+          <option value="2020">2020</option>
+          <option value="2019">2019</option>
+          <option value="2018">2018</option>
+        </select>
+        <select class="filter-select" id="articleOrder" aria-label="Sắp xếp thời gian">
+          <option value="desc">Mới nhất trước</option>
+          <option value="asc">Cũ nhất trước</option>
+        </select>
+        <div class="article-meta-summary" id="articleMetaSummary">Kho bài viết GEE 2018–2022</div>
+      </div>
+    </section>
+
     <section class="results" id="results" aria-live="polite"></section>
 
-    <aside class="related-box">
+    <aside class="related-box" id="relatedBox">
       <h3>Cách dùng cho nhà phát triển</h3>
       <p>Gõ một bài toán như <b>flood Sentinel-1</b>, <b>forest change Landsat</b>, hoặc dán trực tiếp URL Earth Engine App. Kết quả ưu tiên tên app, tác giả, URL, sensor/chủ đề và độ tương đồng. Nút <b>Mã nguồn</b> thử đọc JavaScript công khai; nếu bị CORS/quyền truy cập, công cụ sẽ đưa lệnh <code>geeadd utils app2script</code> để lấy mã bằng CLI. Luôn kiểm tra giấy phép, quyền asset và dữ liệu trước khi tái sử dụng.</p>
     </aside>
@@ -225,6 +270,19 @@
   var lastQuery='';
   var currentCode='';
   var currentUrl='';
+  var contentScope='apps';
+  var articleIndex=[];
+  var articleCurrent=[];
+  var articleVisible=30;
+  var articleYear='all';
+  var articleOrder='desc';
+  var ARTICLE_FILES=[
+    'data/gee-articles-2018.json',
+    'data/gee-articles-2019.json',
+    'data/gee-articles-2020.json',
+    'data/gee-articles-2021.json',
+    'data/gee-articles-2022.json'
+  ];
 
   var q=document.getElementById('q');
   var form=document.getElementById('form');
@@ -238,6 +296,13 @@
   var codeNotice=document.getElementById('codeNotice');
   var modalTitle=document.getElementById('modalTitle');
   var cliCmd=document.getElementById('cliCmd');
+  var articleControls=document.getElementById('articleControls');
+  var articleYearEl=document.getElementById('articleYear');
+  var articleOrderEl=document.getElementById('articleOrder');
+  var articleMetaSummary=document.getElementById('articleMetaSummary');
+  var relatedBox=document.getElementById('relatedBox');
+  var appCountBadge=document.getElementById('appCountBadge');
+  var articleCountBadge=document.getElementById('articleCountBadge');
 
   var topicRules=[
     ['Lũ lụt',['flood','inundation','flooding','floodmap']],
@@ -401,7 +466,7 @@
       try{localStorage.setItem(CACHE_KEY,JSON.stringify({ts:Date.now(),data:data}));}catch(e){}
       build(data);
       status.textContent=index.length.toLocaleString('vi-VN')+' ứng dụng công khai · '+Object.keys(data).length.toLocaleString('vi-VN')+' tài khoản/tác giả';
-      if(lastQuery || activeTab==='watch') search(lastQuery);
+      if(contentScope==='apps' && (lastQuery || activeTab==='watch')) search(lastQuery);
     }catch(e){
       if(!silent){
         status.textContent='Không nạp được chỉ mục trực tuyến. Bạn vẫn có thể dán URL GEE để kiểm tra trực tiếp.';
@@ -416,6 +481,121 @@
       (Array.isArray(data[owner])?data[owner]:[]).forEach(function(url){out.push(parseApp(url,owner));});
     });
     index=out;
+    if(appCountBadge) appCountBadge.textContent=index.length.toLocaleString('vi-VN');
+  }
+
+  async function loadArticles(){
+    var batches=await Promise.all(ARTICLE_FILES.map(async function(file){
+      try{
+        var res=await fetch(file,{cache:'no-store'});
+        if(!res.ok) throw new Error('HTTP '+res.status);
+        var data=await res.json();
+        return Array.isArray(data.articles)?data.articles:[];
+      }catch(e){ return []; }
+    }));
+    articleIndex=[].concat.apply([],batches).sort(function(a,b){
+      return String(b.published).localeCompare(String(a.published));
+    });
+    if(articleCountBadge) articleCountBadge.textContent=articleIndex.length.toLocaleString('vi-VN');
+    return articleIndex;
+  }
+
+  function formatArticleDate(iso){
+    try{
+      return new Intl.DateTimeFormat('vi-VN',{day:'2-digit',month:'2-digit',year:'numeric'}).format(new Date(iso));
+    }catch(e){ return String(iso||'').slice(0,10); }
+  }
+
+  function articleHaystack(a){
+    return normalize([a.title,a.url,a.year].concat(a.categories||[],a.tags||[]).join(' '));
+  }
+
+  function articleMatches(a,query){
+    if(!query) return true;
+    var qt=tokens(query);
+    var hay=articleHaystack(a);
+    return qt.every(function(t){return hay.indexOf(t)>=0;});
+  }
+
+  function articleTagsHtml(a){
+    var seen={};
+    return (a.categories||[]).concat(a.tags||[]).filter(function(x){
+      var k=normalize(x);
+      if(!k || k==='google earth engine' || seen[k]) return false;
+      seen[k]=true; return true;
+    }).slice(0,5).map(function(x){
+      var cls=/sentinel|landsat|modis|chirps|srtm|python/i.test(x)?' sensor':'';
+      return '<span class="tag'+cls+'">'+escapeHtml(x)+'</span>';
+    }).join('');
+  }
+
+  function articleResultHtml(a){
+    var label=(a.categories||[]).concat(a.tags||[]).filter(function(x){return normalize(x)!=='google earth engine';}).slice(0,3).join(' · ');
+    if(!label) label='Google Earth Engine';
+    return '<article class="result article-result">'+
+      '<div class="result-head"><div class="favicon">GEE</div><div class="result-main">'+
+      '<div class="path"><span class="timeline-dot"></span><span>mygeoblog.com › Bài viết GEE</span><span class="article-date">'+escapeHtml(formatArticleDate(a.published))+'</span></div>'+
+      '<div class="url">'+escapeHtml(a.url)+'</div>'+
+      '<a class="title" href="'+escapeHtml(a.url)+'" target="_blank" rel="noopener">'+escapeHtml(a.title)+'</a>'+
+      '<p class="article-desc">'+escapeHtml(label)+' · Bài được lập chỉ mục theo thời gian từ kho tư liệu GEE.</p>'+
+      '<div class="meta"><span class="tag score">'+escapeHtml(a.year)+'</span>'+articleTagsHtml(a)+'</div>'+
+      '<div class="actions">'+
+        '<a class="action primary" href="'+escapeHtml(a.url)+'" target="_blank" rel="noopener">Mở bài gốc ↗</a>'+
+        '<button class="action copy-article-url" data-url="'+escapeHtml(a.url)+'">Chép URL</button>'+
+      '</div></div></div></article>';
+  }
+
+  function renderArticles(){
+    if(!articleCurrent.length){
+      results.innerHTML='<div class="empty"><b>Không tìm thấy bài viết GEE phù hợp.</b><br><br>Thử từ khóa ngắn hơn, đổi năm hoặc tìm theo Landsat, Sentinel, flood, forest, Python…</div>';
+      return;
+    }
+    var shown=articleCurrent.slice(0,articleVisible);
+    results.innerHTML=shown.map(articleResultHtml).join('')+
+      (articleVisible<articleCurrent.length?'<div class="load-more-wrap"><button class="load-more" id="loadMoreArticles">Xem thêm '+Math.min(30,articleCurrent.length-articleVisible)+' bài</button></div>':'');
+    document.querySelectorAll('.copy-article-url').forEach(function(b){
+      b.onclick=function(){copyText(b.getAttribute('data-url'));b.textContent='Đã chép';setTimeout(function(){b.textContent='Chép URL';},1200);};
+    });
+    var more=document.getElementById('loadMoreArticles');
+    if(more) more.onclick=function(){articleVisible+=30;renderArticles();};
+  }
+
+  function searchArticles(query,resetVisible){
+    lastQuery=String(query||'').trim();
+    clear.style.display=lastQuery?'block':'none';
+    if(resetVisible!==false) articleVisible=30;
+    articleYear=articleYearEl.value||'all';
+    articleOrder=articleOrderEl.value||'desc';
+    articleCurrent=articleIndex.filter(function(a){
+      return (articleYear==='all'||a.year===articleYear) && articleMatches(a,lastQuery);
+    }).sort(function(a,b){
+      var d=String(a.published).localeCompare(String(b.published));
+      return articleOrder==='asc'?d:-d;
+    });
+    var range=articleYear==='all'?'2018–2022':articleYear;
+    articleMetaSummary.textContent=articleCurrent.length.toLocaleString('vi-VN')+' bài · '+range;
+    status.textContent=articleIndex.length.toLocaleString('vi-VN')+' bài GEE · lập chỉ mục theo thời gian 2018–2022';
+    renderArticles();
+  }
+
+  function setScope(scope){
+    contentScope=scope==='articles'?'articles':'apps';
+    document.querySelectorAll('.scope-tab').forEach(function(b){
+      b.classList.toggle('active',b.getAttribute('data-scope')===contentScope);
+    });
+    if(contentScope==='articles'){
+      toolbar.classList.remove('show');
+      articleControls.classList.add('show');
+      relatedBox.style.display='none';
+      q.placeholder='Tìm bài viết GEE: Landsat, Sentinel, flood, forest, Python…';
+      searchArticles(q.value,true);
+    }else{
+      articleControls.classList.remove('show');
+      relatedBox.style.display='';
+      q.placeholder='Tìm URL, tên app, tác giả, chủ đề, sensor…';
+      status.textContent=index.length.toLocaleString('vi-VN')+' ứng dụng Google Earth Engine công khai';
+      search(q.value);
+    }
   }
 
   function directApp(query){
@@ -425,6 +605,7 @@
   }
 
   function search(query){
+    if(contentScope!=='apps') return;
     lastQuery=String(query||'').trim();
     clear.style.display=lastQuery?'block':'none';
     toolbar.classList.add('show');
@@ -571,25 +752,31 @@
     var ta=document.createElement('textarea');ta.value=String(s||'');document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();
   }
 
-  form.addEventListener('submit',function(e){e.preventDefault();activeTab='all';setTabs();search(q.value);window.scrollTo({top:250,behavior:'smooth'});});
+  form.addEventListener('submit',function(e){e.preventDefault();if(contentScope==='articles'){searchArticles(q.value,true);}else{activeTab='all';setTabs();search(q.value);}window.scrollTo({top:250,behavior:'smooth'});});
   q.addEventListener('input',function(){
     clear.style.display=q.value?'block':'none';
-    if(q.value.length>=2){activeTab='all';setTabs();search(q.value);}
+    if(q.value.length>=2){if(contentScope==='articles'){searchArticles(q.value,true);}else{activeTab='all';setTabs();search(q.value);}}
   });
-  clear.onclick=function(){q.value='';clear.style.display='none';activeTab='all';setTabs();search('');q.focus();};
-  document.querySelectorAll('.hint').forEach(function(b){b.onclick=function(){q.value=b.getAttribute('data-q');search(q.value);window.scrollTo({top:250,behavior:'smooth'});};});
+  clear.onclick=function(){q.value='';clear.style.display='none';if(contentScope==='articles'){searchArticles('',true);}else{activeTab='all';setTabs();search('');}q.focus();};
+  document.querySelectorAll('.hint').forEach(function(b){b.onclick=function(){q.value=b.getAttribute('data-q');if(contentScope==='articles'){searchArticles(q.value,true);}else{search(q.value);}window.scrollTo({top:250,behavior:'smooth'});};});
   document.querySelectorAll('.tab').forEach(function(b){b.onclick=function(){activeTab=b.getAttribute('data-tab');setTabs();search(q.value);};});
   function setTabs(){document.querySelectorAll('.tab').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-tab')===activeTab);});}
   document.getElementById('closeModal').onclick=function(){panel.classList.remove('show');};
   panel.addEventListener('click',function(e){if(e.target===panel)panel.classList.remove('show');});
   document.getElementById('copyCode').onclick=function(){copyText(currentCode||codeEl.textContent);};
   document.getElementById('copyCmd').onclick=function(){copyText(cliCmd.textContent);};
+  document.querySelectorAll('.scope-tab').forEach(function(b){
+    b.onclick=function(){setScope(b.getAttribute('data-scope'));};
+  });
+  articleYearEl.onchange=function(){if(contentScope==='articles')searchArticles(q.value,true);};
+  articleOrderEl.onchange=function(){if(contentScope==='articles')searchArticles(q.value,true);};
+
   document.addEventListener('keydown',function(e){
     if(e.key==='Escape')panel.classList.remove('show');
     if(e.key==='/' && document.activeElement!==q){e.preventDefault();q.focus();}
   });
 
-  loadIndex().then(function(){search('');});
+  Promise.all([loadIndex(),loadArticles()]).then(function(){setScope('apps');});
 })();
 </script>
 </body>
