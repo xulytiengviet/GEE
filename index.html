@@ -24,7 +24,7 @@
     .shell{max-width:1120px;margin:0 auto;padding:0 24px 64px}
     .hero{min-height:auto;display:flex;flex-direction:column;align-items:center;padding:24px 0 34px}
     .hero-brand{width:100%;display:flex;justify-content:center;margin:0 0 18px}
-    .hero-banner{display:block;width:min(1080px,100%);height:auto}
+    .hero-banner{display:block;width:min(1120px,100%);height:auto;max-height:374px}
     .search-wrap{width:min(680px,100%);position:relative}
     .searchbox{height:48px;border:1px solid #dfe1e5;border-radius:24px;display:flex;align-items:center;padding:0 16px;gap:10px;background:#fff}
     .searchbox:focus-within,.searchbox:hover{box-shadow:var(--shadow);border-color:transparent}
@@ -104,36 +104,45 @@
   <main class="shell">
     <section class="hero" id="hero">
       <div class="hero-brand" aria-label="Vietflexmap - Thành viên hệ sinh thái gis.vn">
-<svg class="hero-banner" viewBox="0 0 1500 500" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="bannerTitle bannerDesc">
+<svg class="hero-banner" viewBox="0 0 2172 724" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="bannerTitle bannerDesc" preserveAspectRatio="xMidYMid meet">
   <title id="bannerTitle">Vietflexmap</title>
   <desc id="bannerDesc">Thành viên hệ sinh thái gis.vn</desc>
-  <defs>
-    <linearGradient id="vfBlue" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0b3ea8"/>
-      <stop offset=".55" stop-color="#0877f9"/>
-      <stop offset="1" stop-color="#08aef2"/>
-    </linearGradient>
-    <linearGradient id="vfLine" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#ffffff"/>
-      <stop offset=".45" stop-color="#16e6df"/>
-      <stop offset="1" stop-color="#02d8e7"/>
-    </linearGradient>
-  </defs>
-  <rect x="24" y="70" width="330" height="330" rx="72" fill="url(#vfBlue)"/>
-  <path d="M74 294 L128 160 L181 271 L238 176 L300 326" fill="none" stroke="url(#vfLine)" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/>
-  <g fill="#12dfe1" stroke="#fff" stroke-width="8">
-    <circle cx="128" cy="160" r="24"/>
-    <circle cx="181" cy="271" r="24"/>
-    <circle cx="238" cy="176" r="24"/>
-    <circle cx="300" cy="326" r="24"/>
+  <rect width="2172" height="724" fill="#ffffff"/>
+
+  <!-- Biểu trưng G -->
+  <g transform="translate(92 118)">
+    <circle cx="250" cy="250" r="190" fill="none" stroke="#ff0b0b" stroke-width="78"/>
+    <circle cx="250" cy="250" r="112" fill="none" stroke="#ff0b0b" stroke-width="42"/>
+    <rect x="250" y="220" width="190" height="76" fill="#ffffff"/>
+    <path d="M248 220 H440 V414 L345 320 H248 Z" fill="#ff0b0b"/>
+    <path d="M244 220 H355 V294 H244 Z" fill="#ff0b0b"/>
   </g>
-  <text x="405" y="151" font-family="Arial,Helvetica,sans-serif" font-size="53" font-weight="700" fill="#353b4d">Thành viên hệ sinh thái</text>
-  <g fill="#ed1118">
-    <circle cx="1088" cy="123" r="45" fill="none" stroke="#ed1118" stroke-width="18"/>
-    <path d="M1088 95h43v22h-22v41h-21z"/>
-    <text x="1148" y="151" font-family="Arial,Helvetica,sans-serif" font-size="70" font-weight="800">gis.vn</text>
-  </g>
-  <text x="390" y="350" font-family="Arial,Helvetica,sans-serif" font-size="170" font-weight="800" letter-spacing="-9" fill="#000">Vietflex<tspan fill="#126bf3">map</tspan></text>
+
+  <!-- Dòng hệ sinh thái -->
+  <text x="612" y="278"
+        font-family="Arial,Helvetica,sans-serif"
+        font-size="92"
+        font-weight="700"
+        fill="#465d87">Thành viên hệ sinh thái</text>
+  <text x="1642" y="278"
+        font-family="Arial,Helvetica,sans-serif"
+        font-size="108"
+        font-weight="800"
+        fill="#ff0b0b">gis.vn</text>
+
+  <!-- Tên thương hiệu -->
+  <text x="602" y="542"
+        font-family="Arial,Helvetica,sans-serif"
+        font-size="220"
+        font-weight="900"
+        letter-spacing="-11"
+        fill="#000000">Vietflex</text>
+  <text x="1542" y="542"
+        font-family="Arial,Helvetica,sans-serif"
+        font-size="220"
+        font-weight="900"
+        letter-spacing="-9"
+        fill="#126bf3">map</text>
 </svg>
 </div>
       <div class="search-wrap">
