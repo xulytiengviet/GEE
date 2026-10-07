@@ -22,9 +22,9 @@
     .brand-mini{margin-right:auto;font-weight:700;color:#5f6368;letter-spacing:.2px}
     .brand-mini b{color:var(--blue)}
     .shell{max-width:1120px;margin:0 auto;padding:0 24px 64px}
-    .hero{min-height:auto;display:flex;flex-direction:column;align-items:center;padding:24px 0 34px}
+    .hero{min-height:auto;display:flex;flex-direction:column;align-items:center;padding:18px 0 30px}
     .hero-brand{width:100%;display:flex;justify-content:center;margin:0 0 18px}
-    .hero-banner{display:block;width:min(1080px,100%);height:auto;max-height:310px}
+    .hero-banner{display:block;width:min(1080px,100%);height:auto;object-fit:contain}
     .search-wrap{width:min(720px,100%);position:relative}
     .searchbox{height:48px;border:1px solid #dfe1e5;border-radius:24px;display:flex;align-items:center;padding:0 16px;gap:10px;background:#fff}
     .searchbox:focus-within,.searchbox:hover{box-shadow:var(--shadow);border-color:transparent}
@@ -127,46 +127,15 @@
   <main class="shell">
     <section class="hero" id="hero">
       <div class="hero-brand" aria-label="Vietflexmap - Thành viên hệ sinh thái gis.vn">
-<svg class="hero-banner" viewBox="0 0 2172 724" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="bannerTitle bannerDesc" preserveAspectRatio="xMidYMid meet">
-  <title id="bannerTitle">Vietflexmap</title>
-  <desc id="bannerDesc">Thành viên hệ sinh thái gis.vn</desc>
-  <rect width="2172" height="724" fill="#ffffff"/>
-
-  <!-- Biểu trưng G -->
-  <g transform="translate(92 118)">
-    <circle cx="250" cy="250" r="190" fill="none" stroke="#ff0b0b" stroke-width="78"/>
-    <circle cx="250" cy="250" r="112" fill="none" stroke="#ff0b0b" stroke-width="42"/>
-    <rect x="250" y="220" width="190" height="76" fill="#ffffff"/>
-    <path d="M248 220 H440 V414 L345 320 H248 Z" fill="#ff0b0b"/>
-    <path d="M244 220 H355 V294 H244 Z" fill="#ff0b0b"/>
-  </g>
-
-  <!-- Dòng hệ sinh thái -->
-  <text x="612" y="278"
-        font-family="Arial,Helvetica,sans-serif"
-        font-size="92"
-        font-weight="700"
-        fill="#465d87">Thành viên hệ sinh thái</text>
-  <text x="1642" y="278"
-        font-family="Arial,Helvetica,sans-serif"
-        font-size="108"
-        font-weight="800"
-        fill="#ff0b0b">gis.vn</text>
-
-  <!-- Tên thương hiệu -->
-  <text x="602" y="542"
-        font-family="Arial,Helvetica,sans-serif"
-        font-size="220"
-        font-weight="900"
-        letter-spacing="-11"
-        fill="#000000">Vietflex</text>
-  <text x="1542" y="542"
-        font-family="Arial,Helvetica,sans-serif"
-        font-size="220"
-        font-weight="900"
-        letter-spacing="-9"
-        fill="#126bf3">map</text>
-</svg>
+  <img
+    class="hero-banner"
+    src="assets/vietflexmap-banner.webp?v=20261007-2"
+    alt="Vietflexmap - Thành viên hệ sinh thái gis.vn"
+    width="1500"
+    height="500"
+    decoding="async"
+    fetchpriority="high"
+  />
 </div>
       <div class="search-wrap">
         <form id="form" class="searchbox" role="search">
